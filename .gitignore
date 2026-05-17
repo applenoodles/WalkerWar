@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+
+# Secrets
+.env
+
+# Generated game data (keep directory skeleton via .gitkeep)
+data/cache/*/*.json
+data/games/*.json
+
+# OS / editor noise
+.DS_Store
+.vscode/
+.idea/

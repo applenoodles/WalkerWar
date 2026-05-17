@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}WalkWars{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1><a href="{{ url_for('index') }}">WalkWars · 15 分鐘攻城</a></h1>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}WalkWars · 進行中 ({{ gs.game_id }}){% endblock %}
+{% block content %}
+  <div class="hud">
+    <div><strong>回合</strong> {{ gs.turn }} / {{ total_turns }}</div>
+    <div><strong>當前行動</strong> {{ gs.current_player }}</div>
+    <div><strong>玩家 AP</strong> {{ '%.1f' | format(gs.players.human.ap) }} 分鐘</div>
+    <div><strong>AI AP</strong> {{ '%.1f' | format(gs.players.ai.ap) }} 分鐘</div>
+  </div>
+
+  <section class="map-wrapper">
+    {{ map_html|safe }}
+  </section>
+
+  <p class="hint">
+    起點 <b>{{ gs.origin_display }}</b> · 地點 {{ gs.pois|length }} 個（含起點 1 個）·
+    矩陣 {{ gs.matrix|length }}×{{ gs.matrix|length }}
+  </p>
+
+  <details>
+    <summary>地點清單（debug，Step 6 之後會被地圖取代）</summary>
+    <ul class="poi-list">
+      {% for p in gs.pois %}
+        <li>
+          {% if p.poi_id == 'origin' %}🚩{% else %}📍{% endif %}
+          <b>{{ p.name }}</b>
+          <small>{{ p.category }} · value {{ p.value }}</small>
+        </li>
+      {% endfor %}
+    </ul>
+  </details>
+
+  <p class="hint">Game ID: <code>{{ gs.game_id }}</code> · <a href="{{ url_for('index') }}">回起點頁開新局</a></p>
+{% endblock %}

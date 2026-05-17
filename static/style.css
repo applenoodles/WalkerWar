@@ -1,0 +1,72 @@
+/* WalkWars — minimal layer; Step 11 will polish marker colours, panels etc. */
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, "Microsoft JhengHei", "PingFang TC", sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  line-height: 1.5;
+  color: #2c3e50;
+  background: #fafbfc;
+}
+
+header { border-bottom: 2px solid #2c7fb8; margin-bottom: 1.5rem; padding-bottom: 0.5rem; }
+h1 { margin: 0.3rem 0; }
+h1 a { color: #2c7fb8; text-decoration: none; }
+h2 { color: #34495e; margin-top: 1.5rem; }
+
+/* Forms (index page) */
+form { display: flex; gap: 1rem; align-items: flex-end; margin: 1.5rem 0; flex-wrap: wrap; }
+form label { flex: 1; min-width: 250px; display: block; }
+input[type=text] {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  margin-top: 0.3rem;
+}
+button {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #2c7fb8;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+}
+button:hover { background: #1e5a85; }
+
+/* HUD (game page) */
+.hud {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: #ecf0f1;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.hud div { min-width: 100px; }
+.hud strong { display: block; font-size: 0.75rem; color: #7f8c8d; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* Map (Folium renders a full <html> blob — wrap so it sits cleanly in our layout) */
+.map-wrapper {
+  margin: 1rem 0;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+  overflow: hidden;
+  min-height: 500px;
+}
+.map-wrapper .folium-map { height: 500px !important; width: 100% !important; }
+
+/* Misc */
+.hint { color: #7f8c8d; font-size: 0.9rem; }
+.error { color: #c0392b; padding: 0.75rem 1rem; background: #fadbd8; border-radius: 4px; }
+.poi-list { columns: 2; column-gap: 2rem; padding-left: 1.2rem; }
+.poi-list li { break-inside: avoid; margin-bottom: 0.3rem; }
+.poi-list small { color: #95a5a6; margin-left: 0.5rem; }
+code { background: #ecf0f1; padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.9em; }
+a { color: #2c7fb8; }
